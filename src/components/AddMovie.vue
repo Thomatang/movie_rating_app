@@ -9,22 +9,23 @@
     <v-btn @click="clear">clear</v-btn>
   </v-form>
 </template>
+
 <script>
 export default {
   data: () => ({
     valid: true,
-    name: "",
-    description: "",
-    genre: "",
-    release_year: "",
-    nameRules: [v => !!v || "Movie name is required"],
+    name: '',
+    description: '',
+    genre: '',
+    release_year: '',
+    nameRules: [v => !!v || 'Movie name is required'],
     select: null,
-    years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+    years: ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'],
   }),
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        //Perform next action
+        console.log('Validated');
       }
     },
     clear() {

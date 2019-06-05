@@ -141,12 +141,12 @@
 export default {
   data() {
     return {
-      message: "This is the beginning of a long, arduous and fruitful journey."
+      message: 'This is the beginning of a long, arduous and fruitful journey.'
     };
   },
   methods: {
     reply() {
-      this.message = "Ohhh Yeah";
+      this.message = 'Ohhh Yeah';
     }
   }
 };
