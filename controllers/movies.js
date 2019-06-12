@@ -11,7 +11,9 @@ module.exports.controller = (app) => {
     });
 
     newMovie.save((error, movie) => {
-      if (error) { console.log(error); }
+      if (error) {
+        console.log(error);
+      }
       res.send(movie);
     });
   });

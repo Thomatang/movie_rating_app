@@ -9,7 +9,6 @@ import BootstrapVue from 'bootstrap-vue';
 import App from './App';
 import router from './router';
 
-
 Vue.use(BootstrapVue);
 Vue.use(Vuetify);
 
