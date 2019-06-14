@@ -23,8 +23,11 @@
     "mongoose": "^5.5.13",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
+    "serve-static": "^1.14.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-star-rating": "^1.6.1",
+    "vue-swal": "^1.0.0",
     "vuetify": "^1.5.14"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
 const fs = require("fs");
+const serveStatic = require("serve-static");
 
 const app = express();
 const router = express.Router();
@@ -27,6 +28,8 @@ mongoose
           route.controller(app)
       }
   })
+
+  app.use(serveStatic(__dirname + "/dist"));
 
   router.get('/', function(req, res) {
       res.json({ message: 'API Initialized!'});

@@ -1,12 +1,12 @@
 #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    width: 100%;
-    margin-top: 60px;
-  }
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  width: 100%;
+  margin-top: 60px;
+}
 
 #inspire {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -20,8 +20,9 @@ a.side_bar_link {
   text-decoration: none;
 }
 
-card__title--primary, .card__text {
-text-align: left;
+card_title--primary,
+.card_text {
+  text-align: left;
 }
 
 .button {
@@ -30,5 +31,5 @@ text-align: left;
 }
 
 .card {
-  height: 100%!important;
+  height: 100% !important;
 }
