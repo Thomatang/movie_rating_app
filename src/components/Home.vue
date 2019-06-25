@@ -5,9 +5,11 @@
         <v-card-title primary-title>
           <div>
             <div class="headline">
-              <v-btn flat v-bind:to="`/movies/${movie._id}`">{{
+              <v-btn flat v-bind:to="`/movies/${movie._id}`">
+                {{
                 movie.name
-              }}</v-btn>
+                }}
+              </v-btn>
             </div>
             <div>{{ movie.release_year }}. {{ movie.genre }}.</div>
           </div>
@@ -24,31 +26,35 @@
   </v-layout>
 </template>
 <script type="type/javascript">
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'Movies',
+  name: "Movies",
   data() {
     return {
-movies: []
-};
+      movies: []
+    };
   },
   mounted() {
     this.fetchMovies();
   },
   methods: {
     async fetchMovies() {
+      const token = window.localStorage.getItem("auth");
       return axios({
-        method: 'get',
-        url: 'http://localhost:8081/movies',
+        method: "get",
+        url: "/movies",
+        headers: {
+          Authorization: `JWT ${token}`,
+          "Content-Type": "application/json"
+        }
       })
-      .then((response) => {
-        this.movies = response.data.movies;
-      })
-      .catch(() => {
-
-      });
-    },
-  },
+        .then(response => {
+          this.movies = response.data.movies;
+          this.current_user = response.data.current_user;
+        })
+        .catch(() => {});
+    }
+  }
 };
 </script>

@@ -40,13 +40,13 @@ module.exports.controller = (app) => {
 
   // Rate a movie
   app.post('/movies/rate/:id', (req, res) => {
-    const rating = new RatingSchema({
+    const newRating = new RatingSchema({
       movie_id: req.params.id,
       user_id: req.body.user_id,
       rate: req.body.rate,
     });
 
-    rating.save((error, rating) => {
+    newRating.save((error, rating) => {
       if (error) { console.log(error); }
       res.send({
         movie_id: rating.movie_id,

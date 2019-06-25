@@ -1,17 +1,7 @@
 <template>
   <v-form v-model="valid" ref="form" lazy-validation>
-    <v-text-field
-      label="Movie Name"
-      v-model="name"
-      :rules="nameRules"
-      required
-    ></v-text-field>
-    <v-text-field
-      name="input-7-1"
-      label="Movie Description"
-      v-model="description"
-      multiline
-    ></v-text-field>
+    <v-text-field label="Movie Name" v-model="name" :rules="nameRules" required></v-text-field>
+    <v-text-field name="input-7-1" label="Movie Description" v-model="description" multiline></v-text-field>
 
     <v-select
       label="Movie Release Year"
@@ -20,77 +10,72 @@
       required
       :rules="releaseRules"
     ></v-select>
-    <v-text-field
-      label="Movie Genre"
-      v-model="genre"
-      required
-      :rules="genreRules"
-    ></v-text-field>
+    <v-text-field label="Movie Genre" v-model="genre" required :rules="genreRules"></v-text-field>
     <v-btn @click="submit" :disabled="!valid">Submit</v-btn>
     <v-btn @click="clear">clear</v-btn>
   </v-form>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data: () => ({
     valid: true,
-    name: '',
-    description: '',
-    genre: '',
-    release_year: '',
-    nameRules: [v => !!v || 'Movie name is required'],
+    name: "",
+    description: "",
+    genre: "",
+    release_year: "",
+    nameRules: [v => !!v || "Movie name is required"],
     genreRules: [
-      v => !!v || 'Movie genre is required',
+      v => !!v || "Movie genre is required",
       v =>
         (v && v.length <= 80) ||
-        'Movie genre must be less than or equal to 80 characters'
+        "Movie genre must be less than or equal to 80 characters"
     ],
-    releaseRules: [v => !!v || 'Release year is required'],
+    releaseRules: [v => !!v || "Release year is required"],
     select: null,
     years: [
-      '2004',
-      '2005',
-      '2006',
-      '2007',
-      '2008',
-      '2009',
-      '2010',
-      '2011',
-      '2012',
-      '2013',
-      '2014',
-      '2015',
-      '2016',
-      '2017',
-      '2018',
-      '2019'
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019"
     ]
   }),
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
         return axios({
-          method: 'post',
+          method: "post",
           data: {
             name: this.name,
             description: this.description,
             release_year: this.release_year,
             genre: this.genre
           },
-          url: 'http://localhost:8081/movies',
+          url: "/movies",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
           }
         })
           .then(() => {
-            this.$swal('Great!', 'Movie added successfully!', 'success');
-            this.$router.push({ name: 'Home' });
+            this.$swal("Great!", "Movie added successfully!", "success");
+            this.$router.push({ name: "Home" });
             this.$refs.form.reset();
           })
           .catch(() => {
-            this.$swal('Oh oo!', 'Could not add the movie!', 'error');
+            this.$swal("Oh oo!", "Could not add the movie!", "error");
           });
         return true;
       }
